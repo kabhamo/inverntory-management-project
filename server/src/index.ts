@@ -4,7 +4,7 @@ import bodyParser from "body-parser"
 import cors from "cors"
 import helmet from "helmet"
 import morgan from "morgan"
-/* ROUT IMPORTS */
+/* ROUTE IMPORTS */
 
 /* CONFIGURATIONS */
 dotenv.config();
@@ -18,7 +18,9 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(cors())
 
 /* ROUTES */
-
+app.get("/hello", (req, res) => {
+    res.send("Hello World")
+ })
 /* SERVER */
 const port = process.env.PORT || 3001
 app.listen(port, () => {
