@@ -8,6 +8,7 @@ import morgan from "morgan"
 import dashboardRoutes from "./routes/dashboardRoutes"
 import productRoutes from "./routes/productRoutes"
 import userRoutes from "./routes/userRoutes"
+import expensesRoutes from "./routes/expensesRoutes"
 
 /* CONFIGURATIONS */
 dotenv.config();
@@ -28,6 +29,7 @@ app.get("/hello", (req, res) => {
 app.use("/dashboard", dashboardRoutes)
 app.use("/products", productRoutes)
 app.use("/users", userRoutes)
+app.use("/expenses", expensesRoutes)
 
 
 /* SERVER */
