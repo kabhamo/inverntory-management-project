@@ -17,7 +17,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <link rel="icon" href="https://s3-inventory-management-mkabha.s3.us-east-2.amazonaws.com/logo.png" />
+      {/*<link rel="icon" href="/favicon.png" />*/}
       <body className={inter.className}>
         <DashboardWrapper>{children}</DashboardWrapper></body>
     </html>
