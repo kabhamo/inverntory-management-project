@@ -1,16 +1,18 @@
 "use client";
-import React from 'react'
+import React, { useState } from 'react'
 import { Bell, Menu, Moon, Settings, Sun } from 'lucide-react'
 import Link from 'next/link';
 import { useAppSelector, useAppDispatch } from '@/app/redux';
 import { setIsDarkMode, setIsSidebarCollapsed } from '@/state';
 import Image from 'next/image';
+import ProfileImage from '../ProfileImage';
 const SEARCH_TEXT = "Start type to search groups & products"
 
 const Navbar = () => {
     const isSidebarCollapsed = useAppSelector((state) => state.global.isSidebarCollapsed)
     const isDarkMode = useAppSelector((state) => state.global.isDarkMode)
     const dispatch = useAppDispatch()
+    const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
 
     const toggleSidebar = () => {
         dispatch(setIsSidebarCollapsed(!isSidebarCollapsed))
@@ -63,13 +65,21 @@ const Navbar = () => {
                     <hr className='w-0 h-7 border boarder-solid border-gray-300 mx-3' />
                     <div className='flex items-center gap-3 cursor-pointer'>
                         <div className='w-9 h-9'>
-                            <Image
-                                src="https://s3-inventory-management-mkabha.s3.us-east-2.amazonaws.com/profile.jpg"
-                                alt="Profile"
-                                width={50}
-                                height={50}
-                                className='rounded-full h-full object-cover'
-                            />
+                            {isModalOpen ?
+                                <Image
+                                    src="https://s3-inventory-management-mkabha.s3.us-east-2.amazonaws.com/profile.jpg"
+                                    alt="Profile"
+                                    width={50}
+                                    height={50}
+                                    className='rounded-full h-full object-cover'
+                                    onClick={() => setIsModalOpen(true)}
+                                />
+                                :
+                                <ProfileImage
+                                    src="https://s3-inventory-management-mkabha.s3.us-east-2.amazonaws.com/profile.jpg"
+                                    alt="Profile"
+                                />}
+
                         </div><span className='font-semibold'>Kabha</span>
                     </div>
                 </div>
@@ -77,6 +87,9 @@ const Navbar = () => {
                     <Settings className='cursor-pointer text-gray-500' size={24} />
                 </Link>
             </div>
+
+
+
         </div>
     )
 }
