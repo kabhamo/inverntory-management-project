@@ -22,7 +22,7 @@ const Sidebar = () => {
             {/* TOP LOGO */}
             <div className={`flex gap-3 justify-between md:justify-normal items-center pt-8 ${isSidebarCollapsed ? "px-5" : "px-8"}`}>
                 <Image
-                    src="https://s3-inventory-management-mkabha.s3.us-east-2.amazonaws.com/logo.png"
+                    src={`${process.env.S3_DATABASE_URL}/logo.png`}
                     alt="mkstock-logo"
                     width={27}
                     height={27}
