@@ -67,7 +67,7 @@ const Navbar = () => {
                         <div className='w-9 h-9'>
                             {isModalOpen ?
                                 <Image
-                                    src={`${process.env.S3_DATABASE_URL}/profile.jpg`}
+                                    src={`${process.env.NEXT_PUBLIC_S3_DATABASE_URL}/profile.jpg`}
                                     alt="Profile"
                                     width={50}
                                     height={50}
@@ -76,7 +76,7 @@ const Navbar = () => {
                                 />
                                 :
                                 <ProfileImage
-                                    src={`${process.env.S3_DATABASE_URL}/profile.jpg`}
+                                    src={`${process.env.NEXT_PUBLIC_S3_DATABASE_URL}/profile.jpg`}
                                     alt="Profile"
                                 />}
 
